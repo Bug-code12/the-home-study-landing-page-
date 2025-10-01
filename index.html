@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Home Study - Transform Your Learning Journey</title>
+
+    <style>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
+  background: #fef7ed;
+}
+
+/* Enhanced Particle Background Canvas */
+#particleCanvas,
+#featuresParticleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background: transparent;
+}
+
+#featuresParticleCanvas {
+  z-index: 0;
+}
+
+/* Main content wrapper */
+.main-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* Header/Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(251, 146, 60, 0.1);
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  
+}
+
+.navbar-logo {
+  height: 56px;
+  width: auto;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #6b7280;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #fbab00;
+}
+
+.get-started-btn {
+  background: #fbab00;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(251, 146, 60, 0.4);
+}
+
+.get-started-btn:hover {
+  background: #fbab00;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(251, 146, 60, 0.6);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 80px 24px 120px;
+  position: relative;
+  z-index: 10;
+}
+
+.hero-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hero-logo {
+  
+  margin-bottom: 0px;
+  
+  
+}
+
+.main-logo {
+  max-width: 350px;
+  height: auto;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fed7aa;
+  color: #fbab00;
+  padding: 12px 16px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  width: fit-content;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #fbab00;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #111827;
+  line-height: 1.1;
+}
+
+.gradient-text {
+  color: #fb923c;
+}
+
+.hero-description {
+  font-size: 20px;
+  color: #6b7280;
+  line-height: 1.7;
+}
+
+.enhance-btn {
+  background: #fb923c;
+  color: white;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 24px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(251, 146, 60, 0.4);
+  transition: all 0.3s;
+  width: fit-content;
+}
+
+.enhance-btn:hover {
+  background: #fbab00;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 40px rgba(251, 146, 60, 0.6);
+}
+
+/* Contact Form */
+.contact-form-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.form-header h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.form-header p {
+  color: #6b7280;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #fbab00;
+  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.1);
+}
+
+.submit-btn {
+  width: 100%;
+  background: #fbab00;
+  color: white;
+  font-weight: bold;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(251, 146, 60, 0.4);
+  transition: all 0.3s;
+}
+
+.submit-btn:hover {
+  background: #fbab00;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(251, 146, 60, 0.6);
+}
+
+/* Features Section */
+.features-section {
+  padding: 80px 24px;
+  background: #f9fafb;
+  position: relative;
+  overflow: hidden;
+}
+
+.features-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.features-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.features-header h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.features-header p {
+  font-size: 20px;
+  color: #6b7280;
+  max-width: 768px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+.feature-card {
+  background: #fbab00;
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(251, 158, 11, 0.2);
+  transition: all 0.5s;
+  cursor: pointer;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+}
+
+.feature-card:hover {
+  background: white;
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: all 0.3s;
+}
+
+.feature-card:hover .feature-icon {
+  background: #fbab00;
+}
+
+.feature-card h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 16px;
+  transition: color 0.3s;
+}
+
+.feature-card:hover h3 {
+  color: black;
+}
+
+.feature-card p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  flex-grow: 1;
+  transition: all 0.3s;
+}
+
+.feature-card:hover p {
+  color: #6b7280;
+}
+
+/* New Footer */
+.new-footer {
+  background: #fbab00;
+  color: white;
+}
+
+.footer-top {
+  padding: 60px 24px 40px;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+.footer-info {
+  flex: 1;
+  max-width: 600px;
+}
+
+.footer-info h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.footer-info p {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.contact-item {
+  text-align: right;
+}
+
+.contact-email,
+.contact-phone {
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+}
+
+.contact-phone {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.connect-support-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 16px;
+}
+
+.connect-support-btn:hover {
+  background: white;
+  color: #fbab00;
+}
+
+.footer-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0 24px;
+}
+
+.footer-bottom {
+  padding: 40px 24px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-logo-img {
+  height: 48px;
+  width: auto;
+
+}
+
+.footer-brand-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.social-text {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.social-icon:hover {
+  background: white;
+  color: #fbab00;
+  transform: translateY(-2px);
+}
+
+/* Responsive Footer */
+@media (max-width: 1024px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .footer-contact {
+    align-items: center;
+  }
+
+  .contact-item {
+    text-align: center;
+  }
+
+  .footer-info h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    padding: 40px 20px 30px;
+  }
+
+  .footer-bottom {
+    padding: 30px 20px;
+  }
+
+  .footer-container {
+    gap: 24px;
+  }
+
+  .footer-info h2 {
+    font-size: 1.75rem;
+  }
+
+  .footer-info p {
+    font-size: 16px;
+  }
+
+  .footer-social {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .features-header h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-container {
+    padding: 16px 20px;
+  }
+
+  .navbar-logo {
+    height: 40px;
+  }
+
+  .hero-section {
+    padding: 60px 20px 80px;
+  }
+
+  .main-logo {
+    max-width: 280px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .features-section {
+    padding: 60px 20px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .feature-card {
+    height: auto;
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .features-header h2 {
+    font-size: 2rem;
+  }
+
+  .contact-form-card {
+    padding: 24px;
+  }
+
+  .feature-card {
+    padding: 24px;
+    min-height: 260px;
+  }
+
+  .main-logo {
+    max-width: 240px;
+  }
+}
+canvas {
+      display: block;
+    }
+    .section-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.section-description {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.faqs-section {
+  position: relative;
+  padding: 80px 20px;
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+.faqs-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.faq-image-wrapper {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.faqs-container {
+  flex: 1 1 45%;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.faqs-title {
+  font-size: 28px;
+  color: #343a40;
+  margin-bottom: 25px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-question label {
+  font-size: 18px;
+  color: #343a40;
+  cursor: pointer;
+}
+
+.faq-arrow {
+  font-size: 24px;
+  color: #fbab00;
+  transition: transform 0.3s;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked ~ .faq-question .faq-arrow {
+  transform: rotate(45deg);
+}
+
+input[type="checkbox"]:checked ~ .faq-answer {
+  display: block;
+}
+
+.faq-answer {
+  display: none;
+  margin-top: 15px;
+  padding-left: 10px;
+}
+
+.faq-answer p {
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* دوائر متحركة */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  z-index: 0;
+  animation: float 10s ease-in-out infinite;
+}
+
+.circle1 {
+  width: 100px;
+  height: 100px;
+  background: #fbab00;
+  top: 5%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.circle2 {
+  width: 180px;
+  height: 180px;
+  background: #fbab00;
+  top: 20%;
+  right: 5%;
+  animation-delay: 2s;
+  animation-name: rotate;
+}
+
+.circle3 {
+  width: 60px;
+  height: 60px;
+  background: #fbab00;
+  bottom: 10%;
+  left: 15%;
+  animation-delay: 1s;
+}
+
+.circle4 {
+  width: 150px;
+  height: 150px;
+  background: #fbab00;
+  bottom: 15%;
+  right: 20%;
+  animation-delay: 3s;
+}
+
+.circle5 {
+  width: 90px;
+  height: 90px;
+  background:#fbab00;
+  top: 60%;
+  left: 40%;
+  animation-delay: 4s;
+  animation-name: wave;
+}
+
+.circle6 {
+  width: 120px;
+  height: 120px;
+  background: #fbab00;
+  top: 35%;
+  left: 70%;
+  animation-delay: 5s;
+}
+
+.circle7 {
+  width: 50px;
+  height: 50px;
+  background: #fbab00;
+  bottom: 25%;
+  right: 10%;
+  animation-delay: 6s;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(30px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .faqs-layout {
+    flex-direction: column;
+  }
+
+  .faq-image-wrapper, .faqs-container {
+    width: 100%;
+  }
+
+  .faq-illustration {
+    max-width: 80%;
+  }
+
+  .faqs-title {
+    text-align: center;
+  }
+}
+
+/* Already Registered Section */
+.registered-section {
+  width: 100%;
+  background-color: #fef7ed;; /* اللون البيج */
+  position: relative;
+  overflow: hidden;
+}
+
+.registered-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 0;
+  flex-wrap: wrap; /* يخليها تستجيب للموبايل */
+}
+
+.registered-image {
+  width: 600px;
+  max-width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  filter: blur(5px);
+  
+}
+
+.registered-content {
+  flex: 1;
+  text-align: left;
+}
+
+.registered-header h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.registered-header p {
+  font-size: 20px;
+  color: #6b7280;
+  max-width: 768px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.registered-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.login-btn {
+  background: #fbab00;
+  color: white;
+  padding: 16px 48px;
+  border: none;
+  border-radius: 24px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(251, 146, 60, 0.4);
+  transition: all 0.3s;
+}
+
+.login-btn:hover {
+  background: #fb923c;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 40px rgba(251, 146, 60, 0.6);
+}
+
+.support-link {
+  color: #fbab00;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.support-link:hover {
+  color: #fb923c;
+}
+
+/* Responsive Design for New Sections */
+@media (max-width: 1024px) {
+  .faqs-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .registered-header h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .faqs-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .faq-card {
+    padding: 24px;
+  }
+
+  .faqs-header h2 {
+    font-size: 2rem;
+  }
+
+  .registered-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faqs-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .registered-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .login-btn {
+    padding: 14px 36px;
+    font-size: 16px;
+  }
+}
+</style>
+<script>// Particle background system removed
+
+// Initialize when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  // Contact form handling
+  const contactForm = document.getElementById("contactForm")
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault()
+
+      const fullName = document.getElementById("fullName").value
+      const whatsappNumber = document.getElementById("whatsappNumber").value
+      const email = document.getElementById("email").value
+
+      // Basic validation
+      if (!fullName.trim()) {
+        alert("Please enter your full name")
+        return
+      }
+      if (!whatsappNumber.trim()) {
+        alert("Please enter your WhatsApp number")
+        return
+      }
+      if (!email.trim() || !email.includes("@")) {
+        alert("Please enter a valid email address")
+        return
+      }
+
+      // Simulate form submission
+      alert("Thank you for your interest! We will contact you soon.")
+      this.reset()
+    })
+  }
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault()
+      const target = document.querySelector(this.getAttribute("href"))
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        })
+      }
+    })
+  })
+
+  // Add interactive button effects
+  document.querySelectorAll("button").forEach((button) => {
+    button.addEventListener("click", function () {
+      this.style.transform = "scale(0.95)"
+      setTimeout(() => {
+        this.style.transform = ""
+      }, 150)
+    })
+  })
+
+  // FAQ interaction
+  document.querySelectorAll('.faq-question').forEach(item => {
+    item.addEventListener('click', function() {
+      const checkbox = this.parentElement.querySelector('.faq-checkbox');
+      checkbox.checked = !checkbox.checked;
+    });
+  });
+})
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all sections that you want to animate
+    const sections = document.querySelectorAll('#home, #features, #faqs-section, #registered-section');
+
+    // Check if sections are selected correctly
+    if (sections.length === 0) {
+        console.error('No sections found. Check your selectors.');
+        return;
+    }
+
+    // Set initial styles for each section
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(50px)';
+        section.style.transition = 'opacity 1s ease-in-out, transform 1s cubic-bezier(0.25, 0.1, 0.25, 1)';
+        section.style.visibility = 'visible';
+    });
+
+    // Function to check if a section is in the viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) - 150 &&
+            rect.bottom >= 0
+        );
+    }
+
+    // Function to check visibility and apply animations
+    function checkVisibility() {
+        sections.forEach(section => {
+            if (isInViewport(section)) {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }
+        });
+    }
+
+    // Add event listener for scroll events
+    window.addEventListener('scroll', checkVisibility);
+
+    // Check visibility on page load
+    checkVisibility();
+});
+</script>
+</head>
+<body>
+    <!-- Enhanced Particle Background Canvas -->
+    <canvas id="particleCanvas"></canvas>
+    <canvas id="featuresParticleCanvas"></canvas>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="navbar">
+            <div class="nav-container">
+                <div class="logo-section">
+                    <img src="public/images/ths-logo.png" alt="THS Logo" class="navbar-logo">
+                    
+                </div>
+                
+                <nav class="nav-links">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#faqs-section" class="nav-link">FAQs</a>
+                    <a href="#registered-section" class="nav-link">Login</a>
+                </nav>
+                
+                <button class="get-started-btn">Get Started</button>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-logo">
+                        <img src="public/images/the-logo.png" alt="The Home Study Logo" class="main-logo">
+                    </div>
+
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        <span>Transform Your Future Today</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Transform Your Learning Journey with
+                        <span class="gradient-text"> beast learning journey </span>
+                    </h1>
+
+                    <p class="hero-description">
+                        No Sign-up! Just add your name, WhatsApp number, and email to get free training. Learn the fundamentals
+                        that only 1% of Egyptians are mastering.
+                    </p>
+
+                    <button class="enhance-btn">Enhance Your Skills Now!</button>
+                </div>
+
+                <div class="contact-form-card">
+                    <div class="form-header">
+                        <h3>Get Free Training</h3>
+                        <p>Be the first to unlock exclusive skills</p>
+                    </div>
+
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="e.g., Amir" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="whatsappNumber">WhatsApp Number</label>
+                            <input type="tel" id="whatsappNumber" placeholder="e.g., 01145233333" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="e.g., example@email.com" required>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Get Your Free Training!</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="features-container">
+                <div class="features-header">
+                    <h2>
+                        Powerful Features That
+                        <span class="gradient-text"> Transform Lives</span>
+                    </h2>
+                    <p>
+                        Everything you need to streamline your learning journey with cutting-edge tools, expert guidance, and
+                        skills that only 1% of people possess.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.33324 18.6667C5.08093 18.6675 4.83355 18.5968 4.61985 18.4627C4.40614 18.3285 4.23489 18.1365 4.12597 17.9089C4.01706 17.6813 3.97497 17.4275 4.00457 17.1769C4.03418 16.9263 4.13428 16.6893 4.29324 16.4933L17.4932 2.89335C17.5923 2.77906 17.7272 2.70182 17.8759 2.67432C18.0246 2.64683 18.1782 2.6707 18.3115 2.74202C18.4449 2.81334 18.55 2.92788 18.6097 3.06682C18.6694 3.20577 18.68 3.36088 18.6399 3.50668L16.0799 11.5333C16.0044 11.7354 15.9791 11.9527 16.006 12.1667C16.033 12.3807 16.1115 12.5849 16.2347 12.7619C16.3579 12.9389 16.5223 13.0834 16.7136 13.1829C16.9049 13.2824 17.1176 13.334 17.3332 13.3333H26.6666C26.9189 13.3325 27.1663 13.4032 27.38 13.5374C27.5937 13.6715 27.7649 13.8635 27.8738 14.0911C27.9828 14.3187 28.0249 14.5726 27.9952 14.8231C27.9656 15.0737 27.8655 15.3107 27.7066 15.5067L14.5066 29.1067C14.4076 29.221 14.2726 29.2982 14.1239 29.3257C13.9752 29.3532 13.8216 29.3293 13.6883 29.258C13.5549 29.1867 13.4498 29.0722 13.3901 28.9332C13.3305 28.7943 13.3198 28.6392 13.3599 28.4933L15.9199 20.4667C15.9954 20.2646 16.0207 20.0473 15.9938 19.8333C15.9668 19.6194 15.8884 19.4151 15.7651 19.2381C15.6419 19.0611 15.4775 18.9167 15.2862 18.8171C15.0949 18.7176 14.8822 18.666 14.6666 18.6667H5.33324Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Unique Skills</h3>
+                        <p>By getting your free training with The Home Study, you will have skills only 1% of Egyptians possess. Master cutting-edge techniques that set you apart from the competition.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M26.6666 17.3333C26.6666 24 21.9999 27.3333 16.4533 29.2667C16.1628 29.3651 15.8473 29.3604 15.5599 29.2533C9.99992 27.3333 5.33325 24 5.33325 17.3333V8.00001C5.33325 7.64639 5.47373 7.30725 5.72378 7.0572C5.97383 6.80715 6.31296 6.66668 6.66659 6.66668C9.33325 6.66668 12.6666 5.06668 14.9866 3.04001C15.2691 2.79867 15.6284 2.66608 15.9999 2.66608C16.3714 2.66608 16.7308 2.79867 17.0133 3.04001C19.3466 5.08001 22.6666 6.66668 25.3333 6.66668C25.6869 6.66668 26.026 6.80715 26.2761 7.0572C26.5261 7.30725 26.6666 7.64639 26.6666 8.00001V17.3333Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 16L14.6667 18.6666L20 13.3333" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Premium Quality</h3>
+                        <p>All our learning journeys are crafted by highly professional and qualified instructors with years of industry experience. Get world-class education delivered right to your home.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21.3334 28V25.3333C21.3334 23.9188 20.7715 22.5623 19.7713 21.5621C18.7711 20.5619 17.4146 20 16.0001 20H8.00008C6.58559 20 5.22904 20.5619 4.22885 21.5621C3.22865 22.5623 2.66675 23.9188 2.66675 25.3333V28" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21.3333 4.17065C22.4769 4.46715 23.4898 5.13501 24.2128 6.0694C24.9359 7.0038 25.3282 8.15184 25.3282 9.33332C25.3282 10.5148 24.9359 11.6628 24.2128 12.5972C23.4898 13.5316 22.4769 14.1995 21.3333 14.496" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M29.3333 28V25.3333C29.3324 24.1516 28.9391 23.0037 28.2151 22.0698C27.4911 21.1358 26.4774 20.4688 25.3333 20.1733" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12.0001 14.6667C14.9456 14.6667 17.3334 12.2789 17.3334 9.33333C17.3334 6.38781 14.9456 4 12.0001 4C9.05456 4 6.66675 6.38781 6.66675 9.33333C6.66675 12.2789 9.05456 14.6667 12.0001 14.6667Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Expert Team Support</h3>
+                        <p>Our dedicated team is ready to help you at any time and provide instruction in the best possible way. Get personalized guidance throughout your learning journey.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4V25.3333C4 26.0406 4.28095 26.7189 4.78105 27.219C5.28115 27.719 5.95942 28 6.66667 28H28" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9.33325 21.3334H19.9999" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9.33325 14.6666H25.3333" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9.33325 8H13.3333" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Advanced Analytics</h3>
+                        <p>Through advanced data analytics, we analyze your feedback and progress to continuously enhance our learning journeys and provide you with the most effective education.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22.6667 2.66663H9.33341C7.86066 2.66663 6.66675 3.86053 6.66675 5.33329V26.6666C6.66675 28.1394 7.86066 29.3333 9.33341 29.3333H22.6667C24.1395 29.3333 25.3334 28.1394 25.3334 26.6666V5.33329C25.3334 3.86053 24.1395 2.66663 22.6667 2.66663Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 24H16.0133" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Mobile Ready</h3>
+                        <p>Access your learning journeys from anywhere with our responsive design. Learn on your mobile phone, tablet, or desktop - your progress syncs across all devices.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.2933 2.66663H15.7067C14.9994 2.66663 14.3211 2.94758 13.8211 3.44767C13.321 3.94777 13.04 4.62605 13.04 5.33329V5.57329C13.0395 6.04093 12.9161 6.50021 12.6821 6.90508C12.448 7.30994 12.1117 7.64614 11.7067 7.87996L11.1333 8.21329C10.728 8.44734 10.2681 8.57056 9.8 8.57056C9.3319 8.57056 8.87205 8.44734 8.46667 8.21329L8.26667 8.10663C7.65476 7.75364 6.92779 7.65788 6.24534 7.84037C5.56289 8.02286 4.98074 8.46867 4.62667 9.07996L4.33334 9.58663C3.98035 10.1985 3.88459 10.9255 4.06708 11.608C4.24957 12.2904 4.69538 12.8726 5.30667 13.2266L5.50667 13.36C5.9097 13.5926 6.24483 13.9267 6.47874 14.3291C6.71265 14.7314 6.83719 15.1879 6.84 15.6533V16.3333C6.84187 16.8032 6.71954 17.2652 6.48539 17.6726C6.25125 18.08 5.91361 18.4183 5.50667 18.6533L5.30667 18.7733C4.69538 19.1274 4.24957 19.7095 4.06708 20.392C3.88459 21.0744 3.98035 21.8014 4.33334 22.4133L4.62667 22.92C4.98074 23.5312 5.56289 23.9771 6.24534 24.1595C6.92779 24.342 7.65476 24.2463 8.26667 23.8933L8.46667 23.7866C8.87205 23.5526 9.3319 23.4294 9.8 23.4294C22.2 23.4294 10.728 23.5526 11.1333 23.7866L11.7067 24.12C12.1117 24.3538 12.448 24.69 12.6821 25.0948C12.9161 25.4997 13.0395 25.959 13.04 26.4266V26.6666C13.04 27.3739 13.321 28.0521 13.8211 28.5522C14.3211 29.0523 14.9994 29.3333 15.7067 29.3333H16.2933C17.0006 29.3333 17.6789 29.0523 18.179 28.5522C18.6791 28.0521 18.96 27.3739 18.96 26.6666V26.4266C18.9605 25.959 19.0839 25.4997 19.318 25.0948C19.552 24.69 19.8884 24.3538 20.2933 24.12L20.8667 23.7866C21.2721 23.5526 21.7319 23.4294 22.2 23.4294C22.6681 23.4294 23.128 23.5526 23.5333 23.7866L23.7333 23.8933C24.3452 24.2463 25.0722 24.342 25.7547 24.1595C26.4371 23.9771 27.0193 23.5312 27.3733 22.92L27.6667 22.4C28.0197 21.788 28.1154 21.0611 27.9329 20.3786C27.7504 19.6962 27.3046 19.114 26.6933 18.76L26.4933 18.6533C26.0864 18.4183 25.7488 18.08 25.5146 17.6726C25.2805 17.2652 25.1581 16.8032 25.16 16.3333V15.6666C25.1581 15.1967 25.2805 14.7347 25.5146 14.3273C25.7488 13.9199 26.0864 13.5816 26.4933 13.3466L26.6933 13.2266C27.3046 12.8726 27.7504 12.2904 27.9329 11.608C28.1154 10.9255 28.0197 10.1985 27.6667 9.58663L27.3733 9.07996C27.0193 8.46867 26.4371 8.02286 25.7547 7.84037C25.0722 7.65788 24.3452 7.75364 23.7333 8.10663L23.5333 8.21329C23.128 8.44734 22.6681 8.57056 22.2 8.57056C21.7319 8.57056 21.2721 8.44734 20.8667 8.21329L20.2933 7.87996C19.8884 7.64614 19.552 7.30994 19.318 6.90508C19.0839 6.50021 18.9605 6.04093 18.96 5.57329V5.33329C18.96 4.62605 18.6791 3.94777 18.179 3.44767C17.6789 2.94758 17.0006 2.66663 16.2933 2.66663Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 20C18.2091 20 20 18.2091 20 16C20 13.7909 18.2091 12 16 12C13.7909 12 12 13.7909 12 16C12 18.2091 13.7909 20 16 20Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Easy to Use</h3>
+                        <p>Seamlessly access your free training in just one or two seconds. Our intuitive platform ensures you can focus on learning rather than navigating complex interfaces.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+  <section id="faqs-section" class="faqs-section">
+  <!-- دوائر متحركة في الخلفية -->
+  <span class="circle circle1"></span>
+  <span class="circle circle2"></span>
+  <span class="circle circle3"></span>
+  <span class="circle circle4"></span>
+  <span class="circle circle5"></span>
+  <span class="circle circle6"></span>
+  <span class="circle circle7"></span>
+
+  <!-- Section Title and Description -->
+  <div class="section-header">
+    <h1 class="section-title">Explore Our FAQs</h1>
+    <p class="section-description">Find answers to common questions about our services and how we can help you achieve your goals.</p>
+  </div>
+
+  <div class="faqs-layout">
+    <!-- الصورة -->
+    <div class="faq-image-wrapper">
+      <img src="public/images/hero img.png" alt="FAQ Illustration" class="faq-illustration">
+    </div>
+
+    <!-- بوكس الأسئلة -->
+    <div class="faqs-container">
+      <h2 class="faqs-title">Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq1" class="faq-checkbox">
+        <div class="faq-question">
+          <label for="faq1">How do I get started with The Home Study?</label>
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-answer">
+          <p>To get started, simply fill out the form with your full name, WhatsApp number, and email address. You'll receive free training to begin your learning journey.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq2" class="faq-checkbox">
+        <div class="faq-question">
+          <label for="faq2">What skills will I learn?</label>
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-answer">
+          <p>You will learn unique skills that only 1% of Egyptians possess. These skills are designed to set you apart and enhance your career prospects.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq3" class="faq-checkbox">
+        <div class="faq-question">
+          <label for="faq3">Is there any cost involved?</label>
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-answer">
+          <p>No, the initial training is completely free. Just sign up with your details, and you'll receive access to the training materials.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq4" class="faq-checkbox">
+        <div class="faq-question">
+          <label for="faq4">How long does the training take?</label>
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-answer">
+          <p>The duration of the training varies depending on the learning journey you choose. However, most training programs are designed to be completed within a few weeks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Already Registered Section -->
+<section id="registered-section" class="registered-section">
+  <div class="registered-container">
+    <img class="registered-image" src="public/images/card.png" alt="">
+    <div class="registered-content">
+      <div class="registered-header">
+        <h2>Already Registered?</h2>
+        <p>If you've already registered, you can log in to access your learning materials and continue your journey.</p>
+      </div>
+      <div class="registered-actions">
+        <button class="login-btn">Log In</button>
+        <a href="#" class="support-link">Need help? Contact Support</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+        <!-- New Footer -->
+        <footer class="new-footer">
+            <div class="footer-top">
+                <div class="footer-container">
+                    <div class="footer-info">
+                        <h2>Do You Need More Information?</h2>
+                        <p>Connect with us today. Our dedicated experts are here to provide you with exceptional support and prompt responses.</p>
+                    </div>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <span class="contact-email">hello@thehomestudy.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-phone">(+20) 1148695333</span>
+                        </div>
+                        <button class="connect-support-btn">Connect To Support</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                <div class="footer-container">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="public/images/ths-logo.png" alt="THS Logo" class="footer-logo-img">
+                            <span class="footer-brand-text">The Study Home</span>
+                        </div>
+                    </div>
+                    <div class="footer-social">
+                        <span class="social-text">Follow us on social media</span>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" aria-label="LinkedIn">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Instagram">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="YouTube">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    
+</body>
+</html>
