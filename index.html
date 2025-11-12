@@ -282,15 +282,16 @@ body {
 }
 
 .hero-logo {
-  
-  margin-bottom: 0px;
-  
-  
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .main-logo {
-  max-width: 350px;
+  max-width: 550px;
+  width: 100%;
   height: auto;
+  display: block;
+  margin: 0 auto 20px;
 }
 
 .hero-badge {
@@ -420,24 +421,93 @@ body {
   box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.1);
 }
 
+/* Add light bulb animation */
+@keyframes bulbPulse {
+  0%, 100% { 
+    opacity: 0.9; 
+    filter: drop-shadow(0 0 5px #ffeb3b) drop-shadow(0 0 10px rgba(255, 235, 59, 0.5));
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1; 
+    filter: drop-shadow(0 0 15px #ffeb3b) drop-shadow(0 0 30px rgba(255, 235, 59, 0.8));
+    transform: scale(1.1);
+  }
+}
+
 .submit-btn {
-  width: 100%;
-  background: #fbab00;
+  width: auto;
+  min-width: 360px;
+  background: linear-gradient(135deg, #ff9d00, #ff6b00);
   color: white;
-  font-weight: bold;
-  padding: 16px 24px;
+  font-weight: 900;
+  padding: 20px 36px;
   border: none;
-  border-radius: 12px;
-  font-size: 16px;
+  border-radius: 50px;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(251, 146, 60, 0.4);
-  transition: all 0.3s;
+  box-shadow: 0 8px 25px rgba(255, 107, 0, 0.6);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.3;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff6b00, #ff9d00);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
 }
 
 .submit-btn:hover {
-  background: #fbab00;
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(251, 146, 60, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 107, 0, 0.5);
+}
+
+.submit-btn:hover::before {
+  opacity: 1;
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.5);
+}
+
+.bulb-icon {
+  font-size: 26px;
+  animation: bulbPulse 2s infinite;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 15px rgba(255, 235, 59, 0.9);
+  line-height: 1;
+  margin-top: -2px;
+  transform: translateZ(0);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.submit-btn span {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 /* Features Section */
@@ -888,17 +958,23 @@ canvas {
   margin-bottom: 25px;
 }
 
-.faq-item {
-  margin-bottom: 20px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 15px;
-}
-
 .faq-question {
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.faq-question:hover {
+  background: #f8f9fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .faq-question label {
@@ -929,16 +1005,17 @@ input[type="checkbox"]:checked ~ .faq-answer {
   display: none;
   margin-top: 15px;
   padding: 16px;
-  background-color: rgba(0, 201, 168, 0.15);
-  border-radius: 12px;
-  border-right: 3px solid #00C9A8;
+  background-color: rgba(0, 201, 168, 0.1);
+  border-radius: 8px;
   transition: all 0.3s ease;
+  border: none;
 }
 
 .faq-answer p {
-  color: #00695C;
+  color: #2d3748;
   line-height: 1.7;
   margin: 0;
+  font-size: 15px;
 }
 
 /* Add animation when answer is shown */
@@ -1198,6 +1275,11 @@ input[type="checkbox"]:checked ~ .faq-answer {
 
 // Initialize when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
+  // Make FAQ questions clickable
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.style.cursor = 'pointer';
+  });
+
   // Contact form handling
   const contactForm = document.getElementById("contactForm")
   if (contactForm) {
@@ -1348,7 +1430,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
 
                     <h1 class="hero-title">
-                        Transform Your financal life with a 
+                        Transform Your financal life with 
                         <span class="gradient-text"> free videos </span>
                     </h1>
 
@@ -1381,7 +1463,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             <input type="email" id="email" placeholder="e.g., example@email.com" required>
                         </div>
 
-                        <button type="submit" class="submit-btn">Get Your Free Training!</button>
+                        <button type="submit" class="submit-btn">
+  <span>Get Your Free Training</span>
+  <span class="bulb-icon">💡</span>
+</button>
                     </form>
                 </div>
             </div>
@@ -1502,7 +1587,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       <div class="faq-item">
         <input type="checkbox" id="faq1" class="faq-checkbox">
-        <div class="faq-question">
+        <div class="faq-question" onclick="toggleFaq('faq1')">
           <label for="faq1">How do I get started with The Home Study?</label>
           <div class="faq-arrow">+</div>
         </div>
@@ -1513,7 +1598,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       <div class="faq-item">
         <input type="checkbox" id="faq2" class="faq-checkbox">
-        <div class="faq-question">
+        <div class="faq-question" onclick="toggleFaq('faq2')">
           <label for="faq2">What skills will I learn?</label>
           <div class="faq-arrow">+</div>
         </div>
@@ -1524,7 +1609,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       <div class="faq-item">
         <input type="checkbox" id="faq3" class="faq-checkbox">
-        <div class="faq-question">
+        <div class="faq-question" onclick="toggleFaq('faq3')">
           <label for="faq3">Is there any cost involved?</label>
           <div class="faq-arrow">+</div>
         </div>
@@ -1535,7 +1620,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       <div class="faq-item">
         <input type="checkbox" id="faq4" class="faq-checkbox">
-        <div class="faq-question">
+        <div class="faq-question" onclick="toggleFaq('faq4')">
           <label for="faq4">How long does the training take?</label>
           <div class="faq-arrow">+</div>
         </div>
